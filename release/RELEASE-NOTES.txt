@@ -1,0 +1,63 @@
+F13 Offline Bots - Complete Edition 1.0.0-rc1
+Original/base-game build, not a drop-in DLL for Resurrected or Camp Forest Green.
+Public-release candidate: package/install checks and gameplay checks are separate.
+
+PORTED / ADAPTED FROM THE RESURRECTED MOD WORK
+- Custom AI Jason driver and counselor-mode foundation, alongside stock counselor
+  bot behavior. Frozen driver source is preserved, with base-game adapters.
+- Jason strategic setup/traps, throwing knives, abilities/Morph, close combat,
+  grab kills, target pursuit and obstacle/door interaction recovery.
+- F8 hosted online-lobby AI Jason arming after Offline Play initialization;
+  F1 extra AI Jason and F3 extra AI counselor spawning in offline counselor
+  and hosted online AI matches.
+- Counselor convergence and extended mask/sweater/Jason-death interaction support.
+- Local counselor stat handling and installed-character selection integration.
+These describe implemented features, not an assertion that every historical
+Resurrected cheat, map, character, hook or asset was imported. The Epstein hook
+and Resurrected proxy loader are deliberately not included.
+
+BASE-GAME IMPROVEMENTS / CURRENT FEATURES
+- Offline counselor and Jason play surfaces, with integrated runtime menus.
+- Counselor skill Low/Medium/High; counts above seven (including tested ten).
+- Jason Easy/Normal/Hard damage scaling (half/normal/double inputs) and Rage
+  accrual scaling; normal starting state. Armor/perks still affect actual damage.
+- 30/60/90-minute offline match length overrides; stock rain Off/On/Random.
+  Random means stock weather selection, not added snow/daytime weather.
+- Separate starting weapon and small-inventory item settings in counselor mode.
+- Startup counselor/Jason selection preservation and menu return/reentry repair.
+- Scoped knife launch/startup trap ownership handling; vehicle interception,
+  progress-aware chase timeout, shared 50-meter Morph/hunt policy and door/hiding
+  spot handling. Match/death bookkeeping handles multiple AI Jasons.
+- Sweater access/recharge, mask-triggered kill support and axe/machete finish
+  handling; delayed additional-Jason cleanup preserves the primary cinematic.
+- Counselor HUD/ownership handoff fixes for hosted AI matches; helper bots use
+  high stock skill. Remote players' own preferred character handling is preserved.
+- Spectator living-target filtering and AI-Jason support. Modded clients are
+  required for client-side extensions; vanilla remote Jason cycling is not promised.
+- Wave replaced at runtime by the stock urination animation/effect for both
+  counselor genders; bounded retained asset loading, movement cancellation and
+  staggered bot mirroring. RB wheel bridge keeps rear view; Y keeps sweater action.
+- Challenge-only settings for knives, recharge, Jason attributes, stealth,
+  untimed play/replay intro handling and escape/boundary behavior. Challenge
+  containment is isolated from offline/online counselor escapes.
+- Cached metadata, bounded retries, startup-only maintenance, one mirrored bot
+  per 25 ms, startup-task dephasing and cheaper controller/idle/UI work.
+- Optional Epstein hook autoload removed; manual injection remains optional.
+
+PACKAGING IMPROVEMENTS IN THIS CANDIDATE
+- Dedicated delayed launcher, not version.dll or a KnownDLL-dependent proxy.
+- Recognizes normal shipping and existing community process names and exact paths.
+- Exact executable SHA256/x64/profile checks, game-folder/content checks,
+  source/copy hash checks, backup journal, install manifest and reversible upgrade.
+- No executable renames, game-content patching, registry/System32 edits, -NoPak,
+  manually moved DLLs or user-operated injection steps.
+- Shareable diagnostics distinguish files copied, module loaded, backend session
+  and menu-hook evidence. Unsupported/missing/quarantined files fail visibly.
+- Source-only archive, compact runtime archive, licenses/notices and SHA256s.
+- Preserves existing OnlineFix files; networking fixes/game assets are not shipped.
+
+TESTING / LIMITATIONS
+Existing user tests confirmed many features on the prior installed base build.
+The final packaging build still needs fresh-profile, three-character selection,
+five-menu-cycle and remote-computer gameplay checks. See TEST-MATRIX.txt.
+Do not present a compiled or file-installed candidate as a fully tested release.

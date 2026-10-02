@@ -1,0 +1,9 @@
+MinHook is embedded in the backend under its BSD-style license. The complete
+notice is included in LICENSES/MinHook.txt and in the matching vendor source.
+Windows system APIs are dynamically provided by Windows, not shipped here.
+No Unreal Engine/game content, OnlineFix, Steam client or Epstein hook is
+distributed in these archives. Animation/menu behavior references installed
+stock assets; it does not redistribute those assets.
+Project-source rights: this task does not grant a new license for pre-existing
+mod source. The mod author must confirm ownership/redistribution permission and
+choose the project license before a public GitHub/Nexus publication.

@@ -1,0 +1,84 @@
+F13 Offline Bots Complete Edition 1.0.0-rc1 - 2026-10-02
+
+DELIVERABLES
+F13-OfflineBots-Complete-1.0.0-rc1.zip (runtime/install package)
+F13-OfflineBots-Complete-GitHub-Source-1.0.0-rc1.zip (matching source only)
+External CHECKSUMS-SHA256.txt contains final ZIP, backend and launcher hashes.
+Each ZIP also contains a per-file checksum list (not its own circular ZIP hash).
+README.txt, NEXUS-INSTALLATION.txt, RELEASE-NOTES.txt and TEST-MATRIX.txt are
+included. The source archive contains active C++ sources, MinHook, challenge
+integration, installer/verifier/uninstaller/packager/tests and build instructions.
+No game binaries/assets/PAKs, debug/build artifacts, logs or old binaries shipped.
+
+SUPPORTED EXECUTABLE
+SHA256 941E249E4CAABF93A22FB57A6EB61D894D224C16A7464CD7451B41205436E62F
+x64, PE timestamp 0x6777E461, SizeOfImage 0x035C9000.
+Normal Win64 shipping filename and current community SummerCamp.exe filename
+are accepted. Other EXE hashes fail closed, including incompatible Resurrected.
+
+BOOTSTRAP
+Dedicated F13PostAuthAttach.exe launched automatically by a command shortcut.
+It launches the existing game, recognizes its exact normal process/path, waits
+until Offline Play is current, loads the backend once, verifies module presence
+and then stops polling. No dependency on Windows resolving a local proxy DLL;
+no renamed/modified EXEs, no registry/security changes or System32 writes.
+Import inspection confirmed game VERSION/WINMM imports, but no new proxy was
+chosen: existing OnlineFix winmm/loader files remain untouched. Windows APIs
+provide bootstrap loading, so there is no original-export forwarding contract.
+This is a stronger packaging design, NOT a guarantee against access denial,
+anti-cheat, antivirus quarantine, incompatible EXEs or untested Windows setups.
+
+INSTALLED FILES
+SummerCamp\Binaries\Win64\F13BaseGameOfflineBots.dll
+SummerCamp\Binaries\Win64\F13PostAuthAttach.exe
+SummerCamp\Binaries\Win64\Play Offline Bots.cmd
+PLAY-F13-OFFLINE-BOTS.cmd (equivalent root convenience shortcut)
+F13OfflineBots-Install\manifest.json and dated/GUID backup history
+Only when necessary: clean owned autoload entries from dlllist.txt, with an
+exact-byte original backup. Unknown/Resurrected conflicts are not silently fixed.
+ZIP setup scripts/docs remain where extracted; no loose menu assets are needed.
+
+BACKUPS / UNINSTALL
+Every existing same-name target is backed up before any overwrite. Upgrade
+retains the original baseline and journals immediate rollback files separately.
+Uninstall removes only manifest-owned installed targets, restores originals,
+and refuses unexpected changes. It never removes game content/saves. Backup
+history and extracted documentation/setup files remain recoverable.
+The real new F-drive install had no previous backend/launcher files to replace.
+The original game EXE and OnlineFix DLL were hash-checked unchanged after the
+real install/uninstall/reinstall test; existing loader bytes were preserved.
+
+RUNTIME EVIDENCE
+%TEMP%\F13-OfflineBots-Bootstrap.log records actual launcher module path,
+game path/name/hash, backend path/hash, PID and UTC session start/result.
+Verifier correlates exact game/backend hashes, PID, release version and session
+UTC; stale logs are not accepted as current proof. Backend loaded and menu-hook
+evidence are separate from successful file copying and visual gameplay tests.
+Current-match selection labels were added at existing capture/resolve/birth
+events without rewriting working selection or AI behavior.
+
+TEST RESULTS
+Release x64 compilation: PASS, zero errors (existing type warnings remain).
+Matching source-only ZIP: backend and launcher rebuilt successfully from the
+extracted archive, with no game assets or external developer source files.
+12 source gates plus C++ isolated policy/input tests: PASS.
+Public ZIP fixture install/upgrade/restore/missing/corrupt/unsupported/traversal:
+PASS; launcher file/hash preflight passed for both normal and legacy names.
+Actual newly extracted F-drive file install/verify/uninstall/reinstall: PASS.
+Counselor A->B->C: NOT TESTED on this release.
+Jason A->B->C: NOT TESTED on this release.
+Five-match menu lifecycle: NOT TESTED on this release.
+Fresh AppData: NOT TESTED; no profile/saves modified during packaging.
+Clean Steam vanilla gameplay: NOT TESTED; provided copy includes OnlineFix.
+First actual match on new F-drive package: NOT TESTED.
+Previous public-version upgrade: NOT VERIFIED beyond simulated old-file tests.
+Remote computer / remote vanilla Resurrected: NOT TESTED, compatibility hash
+must match; a base-game ZIP is not a Resurrected port.
+Steam command shortcut: user confirmed on prior G-drive build; documented exact
+Target=Win64 Play Offline Bots.cmd, Start In=Win64, Launch Options empty.
+
+GITHUB
+Source and release assets/notes are ready for a prerelease upload. Publication
+is pending a repository and authenticated GitHub access, not claimed completed.
+Do not call this a fully validated public-final release until gameplay cases
+above pass. All ported features/improvements and exclusions are listed in notes.

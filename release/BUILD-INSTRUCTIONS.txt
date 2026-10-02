@@ -1,0 +1,14 @@
+F13 Offline Bots 1.0.0-rc1 matching source
+Windows x64; Visual Studio 2022/2026 or Build Tools with Desktop development
+with C++, v143 toolset and Windows SDK. End users do not need these tools.
+1. Run gameplay-backend\build-port.bat.
+2. Run gameplay-backend\postauth-attach\build.bat.
+3. Run powershell -NoProfile -File release\Build-Release.ps1.
+Build outputs are excluded from this source archive. No game assets are required
+to compile. Active sources include frozen Features.cpp through FrozenJasonBridge;
+do not compile that frozen file separately or substitute Resurrected sources.
+No optional debug-hook macro is defined. The launcher uses a static C++ runtime.
+Matching source means identical source revision/configuration, not a promise of
+byte-identical PE timestamps across different compiler installations.
+Review release\TEST-MATRIX.txt before publishing: compilation is not gameplay
+validation. License clearance from the mod author is required before publication.

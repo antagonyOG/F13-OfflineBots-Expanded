@@ -1,0 +1,36 @@
+1.0.0-rc1 validation checklist - update with actual evidence, never inferred passes
+
+Startup prerequisite for every fresh launch (Steam shortcut or command): sign
+in, open Offline Play and wait about five seconds. No offline match is needed.
+For online AI, return to the hosted lobby, press F8 and confirm AI JASON: ARMED.
+F8 is inactive if the backend has not loaded through Offline Play first.
+
+Build/backend source gates: PASS; Release x64, 12 source gates, C++ /W4 /WX tests
+Launcher normal/legacy filenames and exact-hash preflight: PASS on fixtures
+Installer fresh directory: PASS synthetic file-install test (not gameplay)
+Installer repeat/upgrade and baseline preservation: PASS on fixtures
+Uninstaller restore/removal and unrelated-file preservation: PASS on fixtures
+Missing/quarantined payload/backend: PASS simulated missing/corrupt files
+Unsupported executable rejection with no changes: PASS on fixtures
+Manifest traversal/changed file safeguards: PASS on fixtures
+New F-drive game: PASS file install/verify/uninstall/reinstall using only the public
+ZIP on the newly extracted community base-game copy. EXE and OnlineFix unchanged.
+This is real file-install evidence, not yet a gameplay launch pass.
+True clean Steam vanilla: NOT VERIFIED (provided copy includes community OnlineFix)
+Fresh AppData/profile: NOT TESTED; no saves deleted/renamed during packaging
+Actual first launch/backend/menu on new F-drive copy: NOT TESTED
+Counselor A -> B -> C without restart: NOT TESTED on this package
+Jason A -> B -> C without restart: NOT TESTED on this package
+Five Menu -> Match -> End -> Menu cycles: NOT TESTED on this package
+Multiple maps/new installed candidate: NOT TESTED
+Steam command-shortcut workflow: USER CONFIRMED on previous G-drive build
+Remote-computer install/launch: NOT TESTED; tester will test package
+Resurrected executable: unsupported hashes must be refused, not offset-ported
+Gameplay FPS after packaging: NOT MEASURED
+Source/binary correspondence: exact source/config archived; byte reproducibility
+across different MSVC versions/timestamps is not claimed
+Source-only archive build: PASS, backend and launcher rebuild from extracted
+source ZIP without developer files or game assets (normal C++ build tools only)
+GitHub release publication: pending repository/authentication, not yet published
+
+No public-final/bulletproof claim until gameplay cases are actually completed.
